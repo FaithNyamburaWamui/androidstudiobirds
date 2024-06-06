@@ -13,14 +13,14 @@ class second_activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
-        val btnPrev=findViewById<ImageView>(R.id.btnPrev)
-        val btnNext2=findViewById<ImageView>(R.id.btnNext2)
-        btnPrev.setOnClickListener{
+        val btnPrev = findViewById<ImageView>(R.id.btnPrev)
+        val btnNext2 = findViewById<ImageView>(R.id.btnNext2)
+        btnPrev.setOnClickListener {
             finish()
         }
-        btnNext2.setOnClickListener{
-            val intent=Intent(this,third_activity::class.java)
+        btnNext2.setOnClickListener {
+            val intent = Intent(this, third_activity::class.java)
             startActivity(intent)
         }
-        }
     }
+}
