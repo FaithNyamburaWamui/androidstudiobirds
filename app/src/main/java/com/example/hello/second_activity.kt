@@ -7,20 +7,25 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.hello.databinding.ActivitySecondBinding
+import com.squareup.picasso.Picasso
 
 class second_activity : AppCompatActivity() {
+    lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_second)
-        val btnPrev = findViewById<ImageView>(R.id.btnPrev)
-        val btnNext2 = findViewById<ImageView>(R.id.btnNext2)
-        btnPrev.setOnClickListener {
-            finish()
+        binding=ActivitySecondBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnPrev.setOnClickListener {
+            val intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
-        btnNext2.setOnClickListener {
+        binding.btnNext2.setOnClickListener {
             val intent = Intent(this, third_activity::class.java)
             startActivity(intent)
         }
+
+        Picasso.get().load("https://images.unsplash.com/photo-1531139308064-ba919938a305?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGh1bW1pbmclMjBiaXJkfGVufDB8fDB8fHww").into(binding.imageView2)
     }
 }
